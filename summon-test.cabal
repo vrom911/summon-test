@@ -1,0 +1,99 @@
+cabal-version:       2.0
+name:                summon-test
+version:             0.0.0
+synopsis:            See README for more info
+description:         See README for more info
+homepage:            https://github.com/vrom911/summon-test
+bug-reports:         https://github.com/vrom911/summon-test/issues
+license:             AllRightsReserved
+author:              Veronika
+maintainer:          xrom.xkov@gmail.com
+copyright:           2019 Veronika
+build-type:          Simple
+extra-doc-files:     README.md
+                   , CHANGELOG.md
+tested-with:         GHC == 8.0.2, GHC == 8.2.2, GHC == 8.4.4, GHC == 8.6.3
+
+source-repository head
+  type:                git
+  location:            https://github.com/vrom911/summon-test.git
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     SummonTest
+                       
+
+  build-depends:       base >= 4.9.1.0 && < 4.13
+                     
+
+  ghc-options:         -Wall
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+
+  default-language:    Haskell2010
+
+executable summon-test
+  hs-source-dirs:      app
+  main-is:             Main.hs
+
+  build-depends:       base >= 4.9.1.0 && < 4.13
+                     , summon-test
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+
+  default-language:    Haskell2010
+
+test-suite summon-test-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+
+  build-depends:       base >= 4.9.1.0 && < 4.13
+                     , summon-test
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+
+  default-language:    Haskell2010
+
+benchmark summon-test-benchmark
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      benchmark
+  main-is:             Main.hs
+
+  build-depends:       base >= 4.9.1.0 && < 4.13
+                     , gauge
+                     , summon-test
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+
+  default-language:    Haskell2010
