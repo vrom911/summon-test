@@ -39,6 +39,9 @@ install:
     else
       curl -sSL https://get.haskellstack.org/ | sh
       stack --version
+      if [ "$TRAVIS_HASKELL_VERSION" = "8.0.2" ]; then
+        stack setup --no-terminal --install-cabal 2.2.0.1
+      fi 
       stack build --system-ghc --test --no-run-tests
     fi
 
